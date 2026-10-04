@@ -1,0 +1,5 @@
+# Per-clone answers. The secret file must never land in git.
+seed-config-values.json
+seed-secret-values.json
+.effortless/
+.DS_Store

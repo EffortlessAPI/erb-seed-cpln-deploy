@@ -1,0 +1,11 @@
+{
+  "SSoTmeProjectId": "e364ebdc-7f15-4e8d-8f23-3842ac7f1f17",
+  "Name": "cpln-deploy",
+  "Description": "Deploy add-in: deploy.sh builds the backend's generated API into an image and applies it as a Control Plane workload.",
+  "ProjectSettings": [],
+  "ProjectTranspilers": [],
+  "ShowHidden": false,
+  "ShowAllFiles": false,
+  "CurrentPath": null,
+  "SSoTmeProjectFiles": null
+}

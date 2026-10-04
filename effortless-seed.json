@@ -1,0 +1,48 @@
+{
+  "seed": {
+    "id": "cpln-deploy",
+    "displayName": "Deploy to Control Plane",
+    "tagline": "One script that ships your backend API as a cpln workload.",
+    "description": "Adds a deploy/ folder with deploy.sh: it builds the backend's generated Node API into an image, pushes it to your Control Plane org's registry and applies a workload in the GVC you choose. The build does not run it; you run ./deploy/deploy.sh when you want to ship.",
+    "kind": "child",
+    "category": "deploy",
+    "stack": "Control Plane, Docker, Node",
+    "requiresInput": "A Control Plane org, a GVC in it and a service-account token",
+    "mountPath": "deploy",
+    "requires": "rulebook-backend",
+    "sortOrder": 240
+  },
+  "subSeeds": [],
+  "replacements": [
+    {
+      "key": "cplnOrg",
+      "label": "Control Plane org",
+      "description": "The cpln org the image is pushed to and the workload runs in.",
+      "required": true
+    },
+    {
+      "key": "cplnGvc",
+      "label": "GVC",
+      "description": "The global virtual cloud the workload is applied to.",
+      "valueType": "choice",
+      "discover": "cpln_gvcs",
+      "dependsOn": "cplnOrg",
+      "required": true
+    },
+    {
+      "key": "workloadName",
+      "label": "Workload name",
+      "description": "The cpln workload (and image) name for the API.",
+      "default": "my-rulebook-api"
+    },
+    {
+      "key": "cplnToken",
+      "label": "Control Plane token",
+      "description": "A service-account token that can push images and apply workloads in that org. Kept in your account's secret store, read by deploy.sh at deploy time, never printed.",
+      "secret": true,
+      "valueType": "secret",
+      "persist": true,
+      "required": true
+    }
+  ]
+}
