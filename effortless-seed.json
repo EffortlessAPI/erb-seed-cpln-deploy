@@ -3,7 +3,7 @@
     "id": "cpln-deploy",
     "displayName": "Deploy to Control Plane",
     "tagline": "One script that ships your backend API as a cpln workload.",
-    "description": "Adds a deploy/ folder with deploy.sh: it builds the backend's generated Node API into an image, pushes it to your Control Plane org's registry and applies a workload in the GVC you choose. The build does not run it; you run ./deploy/deploy.sh when you want to ship.",
+    "description": "Adds a deploy/ folder whose build generates deploy/pipeline/: a Dockerfile for the backend's generated Node API, the Control Plane workload (public, its DATABASE_URL read from a cpln secret, never a literal) and its identity/policy, and deploy.sh, which builds and pushes the image to your org's registry and applies the workload in the GVC you choose. The build does not run deploy.sh; you run it when you want to ship.",
     "kind": "child",
     "category": "deploy",
     "stack": "Control Plane, Docker, Node",

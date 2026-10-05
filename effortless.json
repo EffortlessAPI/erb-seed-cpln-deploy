@@ -1,9 +1,18 @@
 {
   "SSoTmeProjectId": "e364ebdc-7f15-4e8d-8f23-3842ac7f1f17",
   "Name": "cpln-deploy",
-  "Description": "Deploy add-in: deploy.sh builds the backend's generated API into an image and applies it as a Control Plane workload.",
+  "Description": "Deploy add-in: create-deployment-pipeline generates pipeline/ (Dockerfile, cpln workload and access YAML, deploy.sh) to ship the backend's generated API as a Control Plane workload.",
   "ProjectSettings": [],
-  "ProjectTranspilers": [],
+  "ProjectTranspilers": [
+    {
+      "IsSSoTTranspiler": false,
+      "Name": "create-deployment-pipeline",
+      "RelativePath": "/pipeline",
+      "CommandLine": "create-deployment-pipeline -i ../../effortless-rulebook/effortless-rulebook.json -p cplnOrg=$cplnOrg$ -p cplnGvc=$cplnGvc$ -p workloadName=$workloadName$ -w 540000",
+      "IsDisabled": false,
+      "Description": "Dockerfile, cpln workload.yaml + access.yaml and deploy.sh for the backend's generated API"
+    }
+  ],
   "ShowHidden": false,
   "ShowAllFiles": false,
   "CurrentPath": null,
